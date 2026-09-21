@@ -10,13 +10,14 @@ données internes de l'objet.
 
 À compléter :
 
-- attentes communes des calculateurs substituables;
-- raison pour laquelle le contrat de calcul reste étroit et la description
-  destinée à l’affichage sort des calculateurs;
-- délégation du calcul sous 50 $ par la classe du calculateur gratuit;
-- correction de la hiérarchie fragile;
-- ajout permis par OCP;
-- raison pour laquelle le polymorphisme obtenu n'est pas encore Strategy.
+- raison pour laquelle le contrat de calcul reste étroit et la description destinée à l’affichage sort des calculateurs:
+	- Service ne devrait pas produire du texte pour l'interface
+- correction de la hiérarchie fragile:
+	- CLGratuit n'hérite plus de CLStandard
+- ajout permis par OCP:
+	- Permet d'ajouter des modes de calcul de frais sans modifier ServiceLivraison
+- raison pour laquelle le polymorphisme obtenu n'est pas encore Strategy:
+	- On laisse toujours le calcul de frais dans ServiceLivraison
 
 ## Exercice 3 — Strategy
 
@@ -26,11 +27,20 @@ données internes de l'objet.
 	- Gratuit, standard, et prioritaire
 - responsabilité stable du contexte:
 	- Savoir si le client est prioritaire
-- Qui choisis stratégie concrète:
+- qui choisis stratégie concrète:
 	- Objet détenant `ServiceLivraison`
 - classes ou interfaces jouant les rôles de contexte, de contrat Strategy, de
-  stratégies concrètes et emplacement servant de point de composition;
+  stratégies concrètes et emplacement servant de point de composition:
+	- Contexte -> ServiceLivraison
+	- Strategy -> ICalculateur
+	- Stratégies concrétes -> Héritant de ICalculateur
+	- Dans Program.ChoisirCalculateur
 - rôle de la méthode statique `Program.ChoisirCalculateur` et endroit où
-  subsistent les conditions de sélection;
-- liens avec OCP, DIP et la composition;
-- distinction entre le mécanisme de polymorphisme et le patron Strategy.
+  subsistent les conditions de sélection:
+	- Choisit le calculateur dépendanment du client et du mode
+- liens avec OCP, DIP et la composition:
+	- Compose `ServiceLivraison` avec le calculateur de frais
+	- OCP: On essaye d'ajouter des stratégie concrètes à place de modifier la méthode elle-même
+	- DIP: La dépendance est une interface
+- distinction entre le mécanisme de polymorphisme et le patron Strategy:
+	- Le polymorphisme agit sur les objet eux-même tandis que le patron agit sur l'organisation d'un groupe d'objet
