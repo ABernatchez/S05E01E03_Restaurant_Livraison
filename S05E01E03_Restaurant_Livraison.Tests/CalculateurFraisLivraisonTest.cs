@@ -16,8 +16,9 @@ public class CalculateurFraisLivraisonTest
     public static CalculateurFraisLivraisonPrioritaire calculateurPrioritaire = new();
     public static CalculateurFraisLivraisonStandard calculateurStandard = new();
     public static CalculateurFraisLivraisonGratuit calculateurGratuit = new(calculateurStandard);
-    
 
+
+    [Fact]
     public void ConstructorGratuit_CalculateurStandardNull_LanceErreur()
     {
         Assert.Throws<ArgumentNullException>(() =>
