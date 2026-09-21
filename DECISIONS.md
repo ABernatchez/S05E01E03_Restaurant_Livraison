@@ -20,10 +20,14 @@ données internes de l'objet.
 
 ## Exercice 3 — Strategy
 
-À compléter :
-
-- cascade ou sélection qui fragilise la classe `ServiceLivraisons`;
-- comportement variable et responsabilité stable du contexte;
+- cascade ou sélection qui fragilise la classe `ServiceLivraisons`:
+	- Calcul des frais de livraison (les ifs)
+- comportement variable:
+	- Gratuit, standard, et prioritaire
+- responsabilité stable du contexte:
+	- Savoir si le client est prioritaire
+- Qui choisis stratégie concrète:
+	- Objet détenant `ServiceLivraison`
 - classes ou interfaces jouant les rôles de contexte, de contrat Strategy, de
   stratégies concrètes et emplacement servant de point de composition;
 - rôle de la méthode statique `Program.ChoisirCalculateur` et endroit où
