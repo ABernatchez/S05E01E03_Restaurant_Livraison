@@ -2,12 +2,17 @@ namespace Restaurant.Livraison;
 
 public class Client
 {
-    public string Statut { get; }
-    public int PointsFidelite { get; }
+    private string status { get; }
+    private int pointsFidelite { get; }
 
-    public Client(string statut, int pointsFidelite)
+    public Client(string status, int pointsFidelite)
     {
-        Statut = statut;
-        PointsFidelite = pointsFidelite;
+        this.status = status;
+        this.pointsFidelite = pointsFidelite;
+    }
+
+    public bool EstPrioritaire()
+    {
+        return this.status == "Or" && this.pointsFidelite >= 1000;
     }
 }

@@ -2,7 +2,9 @@
 
 ## Exercice 1 — Tell, Don't Ask
 
-À compléter.
+La multiplication des getters est le fait d'aller chercher les données de l'objet pour faire les opérations dessus tandis que 
+Tell, D'ont ask fait en sorte de demander à l'objet de faire l'opération. Cela permet de ne pas devoir aller chercher les
+données internes de l'objet.
 
 ## Exercice 2 — OCP, LSP, ISP et composition
 
